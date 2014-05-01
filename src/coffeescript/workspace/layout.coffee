@@ -2,14 +2,25 @@
 
 define(["jQuery", "workspace/canvas"], ($, canvas) ->
   myToolsPanelToggle = $(".doge-tools-toggle")
-  myToolsPanelItem = $(".doge-tools-panel-item")
+  myCanvasTools = $(".doge-canvas-tools")
+  myCanvasToolsPanelItem = myCanvasTools.find(".doge-tools-panel-item")
+  mySettingsTools = $(".doge-settings-tools")
+  mySettingsToolsPanelItem = mySettingsTools.find(".doge-tools-panel-item")
 
   myToolsPanelToggle.on("click", ->
+    $(this).toggleClass("active")
     $(this).next(".doge-tools-panel").toggle(200)
   )
 
-  myToolsPanelItem.on("click", ->
-  	canvas.addRectangleLayer()
+  myCanvasToolsPanelItem.on("click", ->
+    spriteType = $(this).data("type")
+    canvas.addSprite(spriteType)
+  )
+
+  mySettingsToolsPanelItem.on("click", ->
+    action = $(this).data("action")
+    if action == "save"
+      canvas.saveAsImage()
   )
 
   return {}

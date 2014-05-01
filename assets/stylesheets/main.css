@@ -35,7 +35,7 @@ body {
 }
 
 .doge-tools-item {
-    width: 70px;
+    min-width: 80px;
     margin: 0 0 10px 0;
     background-color: mediumaquamarine;
 }
@@ -44,20 +44,50 @@ body {
     display: none;
 }
 
-.btn {
-    border: none;
-    background: transparent;
-    width: 100%;
-    outline: none;
-    cursor: pointer;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+.doge-tools-panel-item {
+    background: mediumaquamarine;
 }
-.btn:hover {
-    background-color: pink;
+
+.doge-tools-toggle {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background: mediumaquamarine;
+}
+.doge-tools-toggle.active {
+    background-color: powderblue;
 }
 
 .loading {
     margin-top: 200px;
     text-align: center;
     font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.btn {
+    border: none;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: pink;
+}
+
+
+/**
+ * Colors for "Loading..."
+ */
+.c-1 {
+    color: #318c80;
+}
+.c-2 {
+    color: #51d9b5;
+}
+.c-3 {
+    color: #a6e582;
+}
+.c-4 {
+    color: #f2cf61;
+}
+.c-5 {
+    color: #d95b5b;
 }

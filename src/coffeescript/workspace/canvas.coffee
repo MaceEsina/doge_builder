@@ -30,33 +30,47 @@ define(["jQuery", "Kinetic"], ($, Kinetic) ->
       myStage.add(backgroundLayer)
     ).attr("src", imageSrc)
 
-  addRectangleLayer = ->
-    hatLayer = new Kinetic.Layer()
-    hatSprite = new Kinetic.Rect({
-      x: 100
-      y: 40
-      width: 100
-      height: 50
-      fill: "#00D2FF"
-      stroke: "black"
-      strokeWidth: 4
-      draggable: true
-    })
+  addSprite = (type) ->
+    if not type
+      return
+    spriteLayer = new Kinetic.Layer()
+    spriteImage = new Image()
+    $(spriteImage).on("load", ->
+      bg = new Kinetic.Image({
+        x: 100
+        y: 100
+        image: spriteImage
+        width: 160
+        height: 160
+        draggable: true
+      })
 
-    hatSprite.on("mouseover", ->
+      # add the shape to the layer
+      spriteLayer.add(bg)
+      # add the layer to the stage
+      myStage.add(spriteLayer)
+
+      # bg.on("mouseover", ->
+      #   bg.setStrokeWidth(1)
+      #   bg.setStroke("Grey")
+      #   spriteLayer.draw()
+      # ).on("mouseout", ->
+      #   bg.setStrokeWidth(0)
+      #   bg.setStroke("Transparent")
+      #   spriteLayer.draw()
+      # )
+    ).attr("src", "/assets/img/sprite-#{type}.png")
+
+    spriteLayer.on("mouseover", ->
       document.body.style.cursor = "pointer"
     ).on("mouseout", ->
       document.body.style.cursor = "default"
     )
 
-    hatLayer.add(hatSprite)
-    myStage.add(hatLayer)
-
   saveAsImage = (callback) ->
     myStage.toDataURL({
       callback: (dataUrl) ->
-        #window.open(dataUrl)
-        callback?(dataUrl)
+        window.open(dataUrl)
     })
 
   ###
@@ -68,7 +82,7 @@ define(["jQuery", "Kinetic"], ($, Kinetic) ->
   init()
 
   return {
-    addRectangleLayer: addRectangleLayer
     saveAsImage: saveAsImage
+    addSprite: addSprite
   }
 )
