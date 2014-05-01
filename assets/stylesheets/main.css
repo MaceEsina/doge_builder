@@ -1,0 +1,63 @@
+body {
+    background-color: mintcream;
+}
+
+.header {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    text-align: center;
+    font-weight: normal;
+    padding: 10px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 36px;
+    text-shadow: 1px 1px 2px black, 0 0 1em pink;
+    color: pink;
+}
+
+.doge-table {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    border: none;
+}
+.doge-table td {
+    vertical-align: top;
+}
+
+#doge-canvas {
+    border: 2px solid mediumaquamarine;
+    width: 675px;
+    height: 506px;    
+}
+
+.doge-tools-item {
+    width: 70px;
+    margin: 0 0 10px 0;
+    background-color: mediumaquamarine;
+}
+
+.doge-tools-panel {
+    display: none;
+}
+
+.btn {
+    border: none;
+    background: transparent;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+.btn:hover {
+    background-color: pink;
+}
+
+.loading {
+    margin-top: 200px;
+    text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
