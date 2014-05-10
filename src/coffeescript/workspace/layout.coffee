@@ -17,7 +17,7 @@ define(["jQuery", "workspace/canvas", "workspace/background"], ($, canvas, backg
     spriteType = $(this).data("type")
     canvas.addSprite(spriteType)
     # since spriteType is hat1 or glasses2, lets remove all digits
-    background.addRandomWord(spriteType.replace(/[0-9]/g, ""))
+    background.addRandomWord(spriteType?.replace(/[0-9]/g, ""))
   )
 
   mySettingsToolsPanelItem.on("click", ->

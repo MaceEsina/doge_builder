@@ -12,7 +12,7 @@ define(["jQuery"], ($) ->
     word = ""
     if incomingWord? and randomInt(0, 2) == 1
       randomIndex = randomInt(0, myDogeVocabulary.multi.length - 1)
-      word = "#{myDogeVocabulary.multi[0]} #{incomingWord}"
+      word = "#{myDogeVocabulary.multi[randomIndex]} #{incomingWord}"
     else
       randomIndex = randomInt(0, myDogeVocabulary.single.length - 1)
       word = myDogeVocabulary.single[randomIndex]
