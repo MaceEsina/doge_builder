@@ -23,5 +23,10 @@ define(["jQuery", "workspace/canvas"], ($, canvas) ->
       canvas.saveAsImage()
   )
 
+  # don't show browser context menu on right click in canvas
+  $('body').on("contextmenu", "##{canvas.canvasSelector}", ->
+    return false
+  )
+
   return {}
 )

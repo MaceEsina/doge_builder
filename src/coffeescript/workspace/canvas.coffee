@@ -2,8 +2,14 @@
 
 define(["jQuery", "Kinetic"], ($, Kinetic) ->
 
+  MOUSE_BUTTON = {
+    left: 1
+    right: 2
+  }
+
+  myDogeCanvasSelector = "doge-canvas"
   myStage = new Kinetic.Stage({
-    container: "doge-canvas"
+    container: myDogeCanvasSelector
     width: 675
     height: 506
   })
@@ -49,22 +55,16 @@ define(["jQuery", "Kinetic"], ($, Kinetic) ->
       spriteLayer.add(bg)
       # add the layer to the stage
       myStage.add(spriteLayer)
-
-      # bg.on("mouseover", ->
-      #   bg.setStrokeWidth(1)
-      #   bg.setStroke("Grey")
-      #   spriteLayer.draw()
-      # ).on("mouseout", ->
-      #   bg.setStrokeWidth(0)
-      #   bg.setStroke("Transparent")
-      #   spriteLayer.draw()
-      # )
     ).attr("src", "/assets/img/sprite-#{type}.png")
 
     spriteLayer.on("mouseover", ->
       document.body.style.cursor = "pointer"
     ).on("mouseout", ->
       document.body.style.cursor = "default"
+    ).on("mousedown", (e) ->
+      # remove sprite layer from the stage on right click
+      if e.evt.button == MOUSE_BUTTON.right
+        spriteLayer.remove()
     )
 
   saveAsImage = (callback) ->
@@ -84,5 +84,6 @@ define(["jQuery", "Kinetic"], ($, Kinetic) ->
   return {
     saveAsImage: saveAsImage
     addSprite: addSprite
+    canvasSelector: myDogeCanvasSelector
   }
 )
