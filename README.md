@@ -16,7 +16,6 @@ Doc links
 * [Kinetic.js docs](http://kineticjs.com/docs/index.html)
 * [Require.js](http://requirejs.org/)
 
-----------
 
 Coffee → JS
 ------------
@@ -26,7 +25,8 @@ Coffee → JS
 Run server
 ----------
 
-    python -m SimpleHTTPServer 8080
+    npm install
+    node web.js
 
 
   [1]: https://pp.vk.me/c618820/v618820142/5973/dI9J1q6rgFg.jpg
