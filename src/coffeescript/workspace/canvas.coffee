@@ -46,8 +46,8 @@ define(["jQuery", "Kinetic"], ($, Kinetic) ->
         x: 100
         y: 100
         image: spriteImage
-        width: 160
-        height: 160
+        width: this.width
+        height: this.height
         draggable: true
       })
 

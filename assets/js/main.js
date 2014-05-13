@@ -13,8 +13,8 @@ require.config({
   }
 });
 
-require(["jQuery", "workspace/layout", "workspace/canvas"],
-  function ($, layout, canvas) {
+require(["jQuery", "workspace/layout", "workspace/canvas", "workspace/background"],
+  function ($, layout, canvas, bg) {
   $(document).ready(function(){
     // console.log("jQuery version:", $.fn.jquery);
     // console.log("Kinetic version:", Kinetic.version);
