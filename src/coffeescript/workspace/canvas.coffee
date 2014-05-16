@@ -6,7 +6,6 @@ define(["jQuery", "Kinetic"], ($, Kinetic) ->
     left: 1
     right: 2
   }
-
   myDogeCanvasSelector = "doge-canvas"
   myStage = new Kinetic.Stage({
     container: myDogeCanvasSelector
@@ -34,6 +33,27 @@ define(["jQuery", "Kinetic"], ($, Kinetic) ->
       backgroundLayer.add(bg)
       # add the layer to the stage
       myStage.add(backgroundLayer)
+    ).attr("src", imageSrc)
+
+  setupBlinkEyeImage = (imageSrc, blinkDelay = 10000) ->
+    blinkEyeLayer = new Kinetic.Layer()
+    blinkEyeImage = new Image()
+    $(blinkEyeImage).on("load", ->
+      blinkEyeImage = new Kinetic.Image({
+        x: 307
+        y: 88
+        image: blinkEyeImage
+        width: blinkEyeImage.width
+        height: blinkEyeImage.height
+      })
+
+      blinkEyeLayer.add(blinkEyeImage)
+      window.setInterval((->
+        myStage.add(blinkEyeLayer)
+        window.setTimeout((->
+          blinkEyeLayer.remove()
+        ), 100)
+      ), blinkDelay)
     ).attr("src", imageSrc)
 
   ###
@@ -100,6 +120,7 @@ define(["jQuery", "Kinetic"], ($, Kinetic) ->
   ###
   init = ->
     setupBackgroundImage("/assets/img/doge.jpg")
+    setupBlinkEyeImage("/assets/img/doge_blink_eye.png")
 
   init()
 
