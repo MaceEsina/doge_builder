@@ -34,6 +34,10 @@ body {
     height: 506px;
 }
 
+.doge-sprite-preview {
+    width: 50px;
+}
+
 .doge-tools-item {
     min-width: 80px;
     margin: 0 0 10px 0;

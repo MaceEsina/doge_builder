@@ -36,41 +36,63 @@ define(["jQuery", "Kinetic"], ($, Kinetic) ->
       myStage.add(backgroundLayer)
     ).attr("src", imageSrc)
 
-  addSprite = (type) ->
-    if not type
-      return
+  ###
+    Add sprite to the stage
+    @param spriteImage: object  jQuery sprite image object
+  ###
+  addSprite = (spriteImage) ->
     spriteLayer = new Kinetic.Layer()
-    spriteImage = new Image()
-    $(spriteImage).on("load", ->
-      bg = new Kinetic.Image({
-        x: 100
-        y: 100
-        image: spriteImage
-        width: this.width
-        height: this.height
-        draggable: true
-      })
 
-      # add the shape to the layer
-      spriteLayer.add(bg)
-      # add the layer to the stage
-      myStage.add(spriteLayer)
-    ).attr("src", "/assets/img/sprite-#{type}.png")
+    if typeof spriteImage is "object"
+      # if spriteImage is jQuery object
+      addImageToSpriteLayer(spriteImage.get(0), spriteLayer, { width: 300, height: 300 })
+    else if typeof spriteImage is "string"
+      # if we pass a "type" of sprite to function args instead of "image" object
+      # e.g. we can pass "hat1" or "glasses2" and considering sprite image will be loaded
+      spriteImage = new Image()
+      $(spriteImage).on("load", ->
+        addImageToSpriteLayer(spriteImage, spriteLayer)
+      ).attr("src", "/assets/img/sprite-#{spriteImage}.png")
+    else
+      console.error("Can't add sprite #{spriteImage} to the #{spriteLayer}")
 
     spriteLayer.on("mouseover", ->
       document.body.style.cursor = "pointer"
     ).on("mouseout", ->
       document.body.style.cursor = "default"
-    ).on("mousedown", (e) ->
+    ).on("mouseup", (e) ->
       # remove sprite layer from the stage on right click
       if e.evt.button == MOUSE_BUTTON.right
         spriteLayer.remove()
     )
 
-  saveAsImage = (callback) ->
+  ###
+    @param spriteImage: Image object  image which will be added
+    @param spriteLayer: Layer object  layer on which we want to add an image
+    @param options: {
+             width: number
+             height: number
+           }
+  ###
+  addImageToSpriteLayer = (spriteImage, spriteLayer, options) ->
+    if not spriteLayer
+      spriteLayer = new Kinetic.Layer()
+    bg = new Kinetic.Image({
+      x: 100
+      y: 100
+      image: spriteImage
+      width: options?.width || spriteImage.width
+      height: options?.height || spriteImage.height
+      draggable: true
+    })
+    # add the shape to the layer
+    spriteLayer.add(bg)
+    # add the layer to the stage
+    myStage.add(spriteLayer)
+
+  saveAsImage = ->
     myStage.toDataURL({
-      callback: (dataUrl) ->
-        window.open(dataUrl)
+      callback: (dataUrl) -> window.open(dataUrl)
     })
 
   ###
