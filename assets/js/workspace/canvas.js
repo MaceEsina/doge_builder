@@ -50,10 +50,12 @@
           height: blinkEyeImage.height
         });
         blinkEyeLayer.add(blinkEyeImage);
+        myStage.add(blinkEyeLayer);
+        blinkEyeLayer.hide();
         return window.setInterval((function() {
-          myStage.add(blinkEyeLayer);
+          blinkEyeLayer.show();
           return window.setTimeout((function() {
-            return blinkEyeLayer.remove();
+            return blinkEyeLayer.hide();
           }), 100);
         }), blinkDelay);
       }).attr("src", imageSrc);
