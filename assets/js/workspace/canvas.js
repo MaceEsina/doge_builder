@@ -75,7 +75,7 @@
         spriteImage = new Image();
         $(spriteImage).on("load", function() {
           return addImageToSpriteLayer(spriteImage, spriteLayer);
-        }).attr("src", "/assets/img/sprite-" + spriteImage + ".png");
+        }).attr("src", "/doge_builder/assets/img/sprite-" + spriteImage + ".png");
       } else {
         console.error("Can't add sprite " + spriteImage + " to the " + spriteLayer);
       }
@@ -126,8 +126,8 @@
       Init canvas settings
      */
     init = function() {
-      setupBackgroundImage("/assets/img/doge.jpg");
-      return setupBlinkEyeImage("/assets/img/doge_blink_eye.png");
+      setupBackgroundImage("/doge_builder/assets/img/doge.jpg");
+      return setupBlinkEyeImage("/doge_builder/assets/img/doge_blink_eye.png");
     };
     init();
     return {
