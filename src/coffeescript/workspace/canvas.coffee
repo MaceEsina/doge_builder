@@ -48,10 +48,12 @@ define(["jQuery", "Kinetic"], ($, Kinetic) ->
       })
 
       blinkEyeLayer.add(blinkEyeImage)
+      myStage.add(blinkEyeLayer)
+      blinkEyeLayer.hide()
       window.setInterval((->
-        myStage.add(blinkEyeLayer)
+        blinkEyeLayer.show()
         window.setTimeout((->
-          blinkEyeLayer.remove()
+          blinkEyeLayer.hide()
         ), 100)
       ), blinkDelay)
     ).attr("src", imageSrc)
