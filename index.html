@@ -6,105 +6,113 @@
 
       <title>Build your own Doge!</title>
 
-      <link rel="stylesheet" href="assets/stylesheets/rreset.css">
-      <link rel="stylesheet" href="assets/stylesheets/main.css">
+      <link rel="stylesheet" href="/assets/stylesheets/reset.css">
+      <link rel="stylesheet" href="/assets/stylesheets/main.css">
 
       <!--[if lt IE 9]>
-        <script src="assets/js/vendor/html5shiv.js"></script>
+        <script src="/assets/js/vendor/html5shiv.js"></script>
       <![endif]-->
 
-      <script data-main="assets/js/main" src="assets/js/vendor/require.js"></script>
+      <script data-main="/assets/js/main" src="/assets/js/vendor/require.js"></script>
   </head>
   <body>
-    <div id="main">
+    <header class="header">Wow Doge Builder</header>
 
-      <header class="header">
-        <h1>Wow Doge Builder</h1>
-      </header>
+    <main>
+      <aside class="col col-left" id="settings-tools">
+        <button class="btn tools-toggle">Settings</button>
+        <nav class="tools-panel">
+          <ul>
+            <li>
+              <button class="btn action-btn" data-action="save" type="button">Save image</button>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      
+      <article class="col col-center">
+        <div id="doge-canvas">
+          <div class="loading">
+            <font class="c-1">L</font>
+            <font class="c-2">o</font>
+            <font class="c-3">a</font>
+            <font class="c-4">d</font>
+            <font class="c-5">i</font>
+            <font class="c-1">n</font>
+            <font class="c-2">g</font>
+            <font class="c-3">.</font>
+            <font class="c-4">.</font>
+            <font class="c-5">.</font>
+          </div>
+        </div>
+      </article>
 
-      <div class="doge-container">
-        <table class="doge-table">
-          <tr>
-            <td class="col-left">
-              <div class="doge-settings-tools">
-                <div class="doge-tools-item">
-                  <button class="btn doge-tools-toggle" type="button">Settings</button>
-                  <ul class="doge-tools-panel">
-                    <li><button class="btn doge-tools-panel-item" data-action="save" type="button">Save file</button></li>
-                  </ul>
-                </div>
-              </div>
-            </td>
+      <aside class="col col-right" id="canvas-tools">
+        <button class="btn tools-toggle">Hats</button>
+        <nav class="tools-panel">
+          <ul>
+            <li>
+              <button class="btn sprite-btn" data-type="hat" type="button">
+                <img class="sprite-preview" src="/assets/img/sprite-hat1.png">
+              </button>
+            </li>
+            <li>
+              <button class="btn sprite-btn" data-type="hat" type="button">
+                <img class="sprite-preview" src="/assets/img/sprite-hat2.png">
+              </button>
+            </li>
+            <li>
+              <button class="btn sprite-btn" data-type="hat" type="button">
+                <img class="sprite-preview" src="/assets/img/sprite-hat3.png">
+              </button>
+            </li>
+          </ul>
+        </nav>
 
-            <td class="col-center">
-              <div id="doge-canvas">
-                <div class="loading">
-                  <font class="c-1">L</font>
-                  <font class="c-2">o</font>
-                  <font class="c-3">a</font>
-                  <font class="c-4">d</font>
-                  <font class="c-5">i</font>
-                  <font class="c-1">n</font>
-                  <font class="c-2">g</font>
-                  <font class="c-3">.</font>
-                  <font class="c-4">.</font>
-                  <font class="c-5">.</font>
-                </div>
-              </div>
-            </td>
+        <button class="btn tools-toggle">Glasses</button>
+        <nav class="tools-panel">
+          <ul>
+            <li>
+              <button class="btn sprite-btn" data-type="hat" type="button">
+                <img class="sprite-preview" src="/assets/img/sprite-glasses1.png">
+              </button>
+            </li>
+            <li>
+              <button class="btn sprite-btn" data-type="hat" type="button">
+                <img class="sprite-preview" src="/assets/img/sprite-glasses2.png">
+              </button>
+            </li>
+            <li>
+              <button class="btn sprite-btn" data-type="hat" type="button">
+                <img class="sprite-preview" src="/assets/img/sprite-glasses3.png">
+              </button>
+            </li>
+          </ul>
+        </nav>
 
-            <td class="col-right">
-              <div class="doge-canvas-tools">
-                <div class="doge-tools-item">
-                  <button class="btn doge-tools-toggle" type="button">Hats</button>
-                  <ul class="doge-tools-panel">
-                    <li>
-                      <button class="btn doge-tools-panel-item" data-type="hat" type="button">
-                        <img class="doge-sprite-preview" src="assets/img/sprite-hat1.png">
-                      </button>
-                    </li>
-                    <li>
-                      <button class="btn doge-tools-panel-item" data-type="hat" type="button">
-                        <img class="doge-sprite-preview" src="assets/img/sprite-hat2.png">
-                      </button>
-                    </li>
-                    <li>
-                      <button class="btn doge-tools-panel-item" data-type="hat" type="button">
-                        <img class="doge-sprite-preview" src="assets/img/sprite-hat3.png">
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-                <div class="doge-tools-item">
-                  <button class="btn doge-tools-toggle" type="button">Glasses</button>
-                  <ul class="doge-tools-panel">
-                    <li>
-                      <button class="btn doge-tools-panel-item" data-type="glasses" type="button">
-                        <img class="doge-sprite-preview" src="assets/img/sprite-glasses1.png">
-                      </button>
-                    </li>
-                    <li><button class="btn doge-tools-panel-item">glasses 2</button></li>
-                    <li><button class="btn doge-tools-panel-item">glasses 3</button></li>
-                  </ul>
-                </div>
-                <div class="doge-tools-item">
-                  <button class="btn doge-tools-toggle" type="button">Scarfs</button>
-                  <ul class="doge-tools-panel">
-                    <li>
-                      <button class="btn doge-tools-panel-item" data-type="scarf" type="button">
-                        <img class="doge-sprite-preview" src="assets/img/sprite-scarf1.png">
-                      </button>
-                    </li>
-                    <li><button class="btn doge-tools-panel-item">scarfs 2</button></li>
-                    <li><button class="btn doge-tools-panel-item">scarfs 3</button></li>
-                  </ul>
-                </div>
-              </div>
-            </td>
-
-          </tr>
-        </table>
-      </div>
-    </div>
+        <button class="btn tools-toggle">Scarves</button>
+        <nav class="tools-panel">
+          <ul>
+            <li>
+              <button class="btn sprite-btn" data-type="hat" type="button">
+                <img class="sprite-preview" src="/assets/img/sprite-scarf1.png">
+              </button>
+            </li>
+            <li>
+              <button class="btn sprite-btn" data-type="hat" type="button">
+                <img class="sprite-preview" src="/assets/img/sprite-scarf2.png">
+              </button>
+            </li>
+            <li>
+              <button class="btn sprite-btn" data-type="hat" type="button">
+                <img class="sprite-preview" src="/assets/img/sprite-scarf3.png">
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      
+      <div class="clearfix"></div>
+    </main>
   </body>
 </html>
