@@ -1,104 +1,86 @@
 body {
-    background-color: mintcream;
-}
-
-.header {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.header h1 {
-    text-align: center;
-    font-weight: normal;
-    padding: 10px;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 36px;
-    text-shadow: 1px 1px 2px black, 0 0 1em pink;
-    color: pink;
-}
-
-.doge-table {
-    width: auto;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0;
-    border: none;
-}
-.doge-table td {
-    vertical-align: top;
-}
-
-#doge-canvas {
-    border: 2px solid mediumaquamarine;
-    width: 675px;
-    height: 506px;
-}
-
-.doge-sprite-preview {
-    width: 50px;
-}
-
-.doge-tools-item {
-    min-width: 80px;
-    margin: 0 0 10px 0;
-    background-color: mediumaquamarine;
-}
-
-.doge-tools-panel {
-    display: none;
-}
-
-.doge-tools-panel-item {
-    background: mediumaquamarine;
-}
-
-.doge-tools-toggle {
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    background: mediumaquamarine;
-}
-.doge-tools-toggle.active {
-    background-color: powderblue;
-}
-
-.doge-word {
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    position: absolute;
-    top: 100px;
-    left: 0px;
-}
-
-.loading {
-    margin-top: 200px;
-    text-align: center;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background-color: mintcream;
 }
 
 .btn {
-    border: none;
-    width: 100%;
-    outline: none;
-    cursor: pointer;
+  border: none;
+  width: 100%;
+  padding: 7px;
+  cursor: pointer;
+  background-color: mediumaquamarine;
 }
 .btn:hover {
-    background-color: pink;
+  background-color: pink;
 }
 
+.clearfix {
+  clear: both;
+}
+
+.col {
+  float: left;
+  height: 510px;
+}
+.col-left,
+.col-right {
+  width: 150px;
+}
+.col-center {
+  width: 679px;
+}
+
+#doge-canvas {
+  border: 2px solid mediumaquamarine;
+  width: 675px;
+  height: 506px;
+}
+
+.doge-word {
+  position: absolute;
+}
+
+.header {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 36px;
+  text-shadow: 1px 1px 2px black, 0 0 1em pink;
+  color: pink;
+}
+
+.loading {
+  margin-top: 200px;
+  text-align: center;
+}
+
+main {
+  width: 979px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.sprite-preview {
+    width: 50px;
+}
+
+.tools-panel {
+  display: none;
+}
+
+.tools-toggle {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background: mediumaquamarine;
+}
+.tools-toggle.active {
+  background-color: powderblue;
+}
 
 /**
  * Colors for "Loading..."
  */
-.c-1 {
-    color: #318c80;
-}
-.c-2 {
-    color: #51d9b5;
-}
-.c-3 {
-    color: #a6e582;
-}
-.c-4 {
-    color: #f2cf61;
-}
-.c-5 {
-    color: #d95b5b;
-}
+.c-1 { color: #318c80; }
+.c-2 { color: #51d9b5; }
+.c-3 { color: #a6e582; }
+.c-4 { color: #f2cf61; }
+.c-5 { color: #d95b5b; }
