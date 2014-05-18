@@ -58,6 +58,11 @@ define(["jQuery", "Kinetic"], ($, Kinetic) ->
       ), blinkDelay)
     ).attr("src", imageSrc)
 
+  getOriginalImage = (image) ->
+    img = image.get(0)
+    # Make in memory copy of image to avoid css issues
+    
+
   ###
     Add sprite to the stage
     @param spriteImage: object  jQuery sprite image object
@@ -67,7 +72,9 @@ define(["jQuery", "Kinetic"], ($, Kinetic) ->
 
     if typeof spriteImage is "object"
       # if spriteImage is jQuery object
-      addImageToSpriteLayer(spriteImage.get(0), spriteLayer, { width: 300, height: 300 })
+      $("<img/>").on("load", ->
+        addImageToSpriteLayer(this, spriteLayer)
+      ).attr("src", spriteImage.attr("src"))
     else if typeof spriteImage is "string"
       # if we pass a "type" of sprite to function args instead of "image" object
       # e.g. we can pass "hat1" or "glasses2" and considering sprite image will be loaded
