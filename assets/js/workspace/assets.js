@@ -2,7 +2,7 @@
 (function() {
   define([], function() {
     var DOGE_BG, DOGE_BLINK_EYE, IMG_DIR, MAIN_DIR;
-    MAIN_DIR = "assets";
+    MAIN_DIR = "/doge_builder/assets";
     IMG_DIR = "" + MAIN_DIR + "/img";
     DOGE_BG = "" + IMG_DIR + "/doge.jpg";
     DOGE_BLINK_EYE = "" + IMG_DIR + "/doge_blink_eye.png";
