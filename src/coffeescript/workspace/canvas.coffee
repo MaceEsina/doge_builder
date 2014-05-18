@@ -1,6 +1,6 @@
 # Client code for canvas stuff
 
-define(["jQuery", "Kinetic"], ($, Kinetic) ->
+define(["jQuery", "Kinetic", "workspace/assets"], ($, Kinetic, assets) ->
 
   MOUSE_BUTTON = {
     left: 1
@@ -81,7 +81,7 @@ define(["jQuery", "Kinetic"], ($, Kinetic) ->
       spriteImage = new Image()
       $(spriteImage).on("load", ->
         addImageToSpriteLayer(spriteImage, spriteLayer)
-      ).attr("src", "/assets/img/sprite-#{spriteImage}.png")
+      ).attr("src", "#{assets.IMG_DIR}/sprite-#{spriteImage}.png")
     else
       console.error("Can't add sprite #{spriteImage} to the #{spriteLayer}")
 
@@ -128,8 +128,8 @@ define(["jQuery", "Kinetic"], ($, Kinetic) ->
     Init canvas settings
   ###
   init = ->
-    setupBackgroundImage("/assets/img/doge.jpg")
-    setupBlinkEyeImage("/assets/img/doge_blink_eye.png")
+    setupBackgroundImage(assets.DOGE_BG)
+    setupBlinkEyeImage(assets.DOGE_BLINK_EYE)
 
   init()
 
