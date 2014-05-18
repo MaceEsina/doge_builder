@@ -2,25 +2,25 @@
 
 define(["jQuery", "workspace/canvas", "workspace/background"], ($, canvas, background) ->
 
-  myToolsPanelToggle = $(".doge-tools-toggle")
-  myCanvasTools = $(".doge-canvas-tools")
-  myCanvasToolsPanelItem = myCanvasTools.find(".doge-tools-panel-item")
-  mySettingsTools = $(".doge-settings-tools")
-  mySettingsToolsPanelItem = mySettingsTools.find(".doge-tools-panel-item")
+  myToolsPanelToggle = $(".tools-toggle")
+  myCanvasTools = $("#canvas-tools")
+  mySettingsTools = $("#settings-tools")
+  mySpriteBtn = myCanvasTools.find(".sprite-btn")
+  myActionBtn = mySettingsTools.find(".action-btn")
 
   myToolsPanelToggle.on("click", ->
     $(this).toggleClass("active")
-    $(this).next(".doge-tools-panel").toggle(200)
+    $(this).next(".tools-panel").toggle(200)
   )
 
-  myCanvasToolsPanelItem.on("click", ->
-    spriteImagePreview = $(this).find(".doge-sprite-preview")
+  mySpriteBtn.on("click", ->
+    spriteImagePreview = $(this).find(".sprite-preview")
     canvas.addSprite(spriteImagePreview)
     spriteType = $(this).data("type")
     background.addRandomWord(spriteType)
   )
 
-  mySettingsToolsPanelItem.on("click", ->
+  myActionBtn.on("click", ->
     action = $(this).data("action")
     if action == "save"
       canvas.saveAsImage()
