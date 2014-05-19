@@ -17,7 +17,7 @@ define(["jQuery", "Kinetic", "workspace/assets"], ($, Kinetic, assets) ->
     Add doge image as background to the stage
     @param imageSrc: string   path to the background image asset
   ###
-  setupBackgroundImage = (imageSrc) ->
+  setupBackgroundImage = (imageSrc = assets.DOGE_BG) ->
     backgroundLayer = new Kinetic.Layer()
     backgroundImage = new Image()
     $(backgroundImage).on("load", ->
@@ -35,7 +35,7 @@ define(["jQuery", "Kinetic", "workspace/assets"], ($, Kinetic, assets) ->
       myStage.add(backgroundLayer)
     ).attr("src", imageSrc)
 
-  setupBlinkEyeImage = (imageSrc, blinkDelay = 10000) ->
+  setupBlinkEyeImage = (imageSrc = assets.DOGE_BLINK_EYE, blinkDelay = 10000) ->
     blinkEyeLayer = new Kinetic.Layer()
     blinkEyeImage = new Image()
     $(blinkEyeImage).on("load", ->
@@ -58,11 +58,6 @@ define(["jQuery", "Kinetic", "workspace/assets"], ($, Kinetic, assets) ->
       ), blinkDelay)
     ).attr("src", imageSrc)
 
-  getOriginalImage = (image) ->
-    img = image.get(0)
-    # Make in memory copy of image to avoid css issues
-    
-
   ###
     Add sprite to the stage
     @param spriteImage: object  jQuery sprite image object
@@ -70,18 +65,11 @@ define(["jQuery", "Kinetic", "workspace/assets"], ($, Kinetic, assets) ->
   addSprite = (spriteImage) ->
     spriteLayer = new Kinetic.Layer()
 
-    if typeof spriteImage is "object"
-      # if spriteImage is jQuery object
+    if spriteImage?.attr?("src")
+      # if spriteImage is object with "src" attribute
       $("<img/>").on("load", ->
         addImageToSpriteLayer(this, spriteLayer)
       ).attr("src", spriteImage.attr("src"))
-    else if typeof spriteImage is "string"
-      # if we pass a "type" of sprite to function args instead of "image" object
-      # e.g. we can pass "hat1" or "glasses2" and considering sprite image will be loaded
-      spriteImage = new Image()
-      $(spriteImage).on("load", ->
-        addImageToSpriteLayer(spriteImage, spriteLayer)
-      ).attr("src", "#{assets.IMG_DIR}/sprite-#{spriteImage}.png")
     else
       console.error("Can't add sprite #{spriteImage} to the #{spriteLayer}")
 
@@ -128,8 +116,8 @@ define(["jQuery", "Kinetic", "workspace/assets"], ($, Kinetic, assets) ->
     Init canvas settings
   ###
   init = ->
-    setupBackgroundImage(assets.DOGE_BG)
-    setupBlinkEyeImage(assets.DOGE_BLINK_EYE)
+    setupBackgroundImage()
+    setupBlinkEyeImage()
 
   init()
 
