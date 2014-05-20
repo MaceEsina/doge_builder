@@ -95,3 +95,33 @@ main {
 .c-3 { color: #a6e582; }
 .c-4 { color: #f2cf61; }
 .c-5 { color: #d95b5b; }
+
+/**
+ * Modals
+ */
+ .modal {
+  display: none;
+  position: absolute;
+  top: 75px;
+  background: rgba(230,240,245,0.95);
+  margin: 10px;
+  width: 660px;
+  height: 490px;
+  border: 1px solid mediumaquamarine;
+}
+.modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+}
+.modal-header {
+  background: rgba(102,205,170,0.9);
+  padding: 10px;
+}
+.modal-content {
+  padding: 10px;
+}
+.modal-toggle.active {
+  background-color: powderblue;
+}
+
