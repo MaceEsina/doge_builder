@@ -7,10 +7,15 @@ body {
   border: none;
   outline: none;
   margin: 0;
-  width: 100%;
   padding: 7px;
   cursor: pointer;
   background-color: mediumaquamarine;
+  -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+       -o-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+  font-family: "Comic Sans MS", sans-serif;
 }
 .btn:hover {
   background-color: pink;
@@ -63,7 +68,11 @@ main {
 }
 
 .sprite-preview {
-    width: 50px;
+  width: 50px;
+}
+
+.tools-btn {
+  width: 100%;
 }
 
 .tools-panel {
@@ -72,8 +81,7 @@ main {
 }
 
 .tools-toggle {
-  font-family: "Comic Sans MS", sans-serif;
-  background: mediumaquamarine;
+  background-color: mediumaquamarine;
 }
 .tools-toggle.active {
   background-color: powderblue;
@@ -87,3 +95,47 @@ main {
 .c-3 { color: #a6e582; }
 .c-4 { color: #f2cf61; }
 .c-5 { color: #d95b5b; }
+
+/**
+ * Modals
+ */
+ .modal {
+  display: none;
+  position: absolute;
+  top: 75px;
+  background: rgba(230,240,245,0.95);
+  margin: 10px;
+  width: 660px;
+  height: 490px;
+  border: 1px solid mediumaquamarine;
+}
+.modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+}
+.modal-header {
+  background: rgba(102,205,170,0.9);
+  padding: 10px;
+}
+.modal-content {
+  padding: 10px;
+}
+.modal-toggle.active {
+  background-color: powderblue;
+}
+
+/**
+ * "About" modal window
+ */
+.about-modal-section {
+  margin-bottom: 10px;
+}
+.about-modal-section h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.about-modal-section ul {
+  margin-left: 10px;
+}
