@@ -111,7 +111,7 @@ main {
 }
 .modal-close {
   position: absolute;
-  top: 3px;
+  top: 1px;
   right: 5px;
 }
 .modal-header {
