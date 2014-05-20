@@ -7,7 +7,6 @@ body {
   border: none;
   outline: none;
   margin: 0;
-  width: 100%;
   padding: 7px;
   cursor: pointer;
   background-color: mediumaquamarine;
@@ -63,7 +62,11 @@ main {
 }
 
 .sprite-preview {
-    width: 50px;
+  width: 50px;
+}
+
+.tools-btn {
+  width: 100%;
 }
 
 .tools-panel {
@@ -72,8 +75,7 @@ main {
 }
 
 .tools-toggle {
-  font-family: "Comic Sans MS", sans-serif;
-  background: mediumaquamarine;
+  background-color: mediumaquamarine;
 }
 .tools-toggle.active {
   background-color: powderblue;
