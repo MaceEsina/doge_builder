@@ -10,6 +10,12 @@ body {
   padding: 7px;
   cursor: pointer;
   background-color: mediumaquamarine;
+  -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+       -o-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+  font-family: "Comic Sans MS", sans-serif;
 }
 .btn:hover {
   background-color: pink;
